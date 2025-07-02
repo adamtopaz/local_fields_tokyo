@@ -25,6 +25,11 @@ lemma locally_compact_implies_compact_valuation_subring :
     cond1 K → cond2 K := by
   sorry
 
+-- cond2 → cond1
+lemma compact_valuation_subring_implies_locally_compact :
+    cond2 K → cond1 K := by
+  sorry
+
 -- cond2 → cond3
 lemma compact_valuation_subring_implies_discrete_etc :
     cond2 K → cond3 K := by
