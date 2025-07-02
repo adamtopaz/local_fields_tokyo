@@ -32,6 +32,12 @@ lemma locally_compact_implies_compact_valuation_subring :
     cond1 K → cond2 K := by
   sorry
 
+lemma valuation_surjective
+    (F : Type) [Field F] [ValuativeRel F]
+    (γ : ValuativeRel.ValueGroupWithZero F) :
+    ∃ x : F, ValuativeRel.valuation _ x = γ :=
+  sorry
+
 open Topology Pointwise in
 -- cond2 → cond1
 lemma compact_valuation_subring_implies_locally_compact :
@@ -47,8 +53,8 @@ lemma compact_valuation_subring_implies_locally_compact :
   obtain ⟨γ, hγ⟩ := hU
   have hγ : {x | v x < γ} ⊆ U := hγ
   obtain ⟨δ, hδ1, hδ2⟩ : ∃ δ : Γ, 0 < δ ∧ δ < 1 := sorry
-  obtain ⟨a, ha⟩ : ∃ a : K, v a = δ := sorry
-  obtain ⟨b, hb⟩ : ∃ b : K, v b = γ := sorry
+  obtain ⟨a, ha⟩ : ∃ a : K, v a = δ := valuation_surjective _ _
+  obtain ⟨b, hb⟩ : ∃ b : K, v b = γ := valuation_surjective _ _
   let W : Set K := (a * b) • { x : K | v x ≤ 1 }
   have hW : W = { x : K | v x ≤ δ * γ } := sorry
   have hW' : W ⊆ U := by
